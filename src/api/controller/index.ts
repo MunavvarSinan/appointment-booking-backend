@@ -81,7 +81,11 @@ export class AppoinmentController {
             res.status(201).json(newAppointment[0]);
         } catch (error) {
             console.error('Error booking appointment:', error);
-            res.status(500).json({ error: 'Failed to book appointment' });
+            if (error instanceof AppError) {
+                res.status(error.statusCode).json({ error: error.message });
+            } else {
+                res.status(500).json({ error: 'Failed to book appointment' });
+            }
         }
     }
 }
