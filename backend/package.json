@@ -6,17 +6,25 @@
   "scripts": {
     "start": "node dist/index.js",
     "build": "tsup",
-    "dev": "tsup src/index.ts --watch --onSuccess 'node dist/index.js'"
+    "dev": "tsup src/index.ts --watch --onSuccess 'node dist/index.js'",
+    "db:generate": "drizzle-kit generate",
+    "db:migrate": "drizzle-kit migrate",
+    "db:push": "drizzle-kit push"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@libsql/client": "^0.14.0",
     "better-sqlite3": "^11.8.1",
     "cors": "^2.8.5",
     "dotenv": "^16.4.7",
     "drizzle-orm": "^0.40.0",
-    "express": "^4.21.2"
+    "drizzle-zod": "^0.7.0",
+    "express": "^4.21.2",
+    "pino": "^9.6.0",
+    "pino-pretty": "^13.0.0",
+    "zod": "^3.24.2"
   },
   "devDependencies": {
     "@tsconfig/node-lts": "^22.0.1",
